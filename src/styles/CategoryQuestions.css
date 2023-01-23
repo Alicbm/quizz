@@ -1,0 +1,12 @@
+.CategoriesQuestions{
+  background: rgba(83, 83, 83, 0.7);
+  z-index: 1;
+}
+.CategoriesQuestions-list{
+  width: 50%;
+  height: 100vh;
+  background-color: chocolate;
+}
+.unshow{
+  display: none;
+}

@@ -1,9 +1,9 @@
 export interface Props {
-  children: React.ReactNode
+  children: JSX.Element | JSX.Element[]
 }
 
 export type GeneralCulture = {
-  id: any,
+  id: number,
   ask: string,
   optionA:{
     text: string,
@@ -24,11 +24,15 @@ export type GeneralCulture = {
 };
 
 export type AppContextType = {
-  position:number,
-  score:number,
-  sendAnswer:boolean,
-  categorySelected:GeneralCulture,
-  sendButton: boolean,
-}
-
+  // time: number,
+  // setTime: (n: number) => void,
+  position: number;
+  score: number;
+  sendAnswer: boolean;
+  categorySelected: GeneralCulture[];
+  setCategorySelected: (category: GeneralCulture[]) => void;
+  sendButton: boolean;
+  answerSelect: (id: string, response: boolean) => void;
+  next: () => void;
+};
 

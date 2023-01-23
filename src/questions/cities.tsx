@@ -1,6 +1,6 @@
 import { GeneralCulture } from "../types";
 
-export const animals: GeneralCulture[] = [
+export const cities: GeneralCulture[] = [
   {
     id: 1,
     ask: 'What is the capital of Colombia?',
