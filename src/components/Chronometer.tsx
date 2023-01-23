@@ -1,30 +1,46 @@
-import React from 'react'
-import { AppContext } from './AppContext';
-// import { useState } from '../hooks/useState';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "./AppContext";
+import { RxLapTimer } from 'react-icons/rx'
+import '../styles/Chronometer.css'
 
 export const Chronometer = () => {
-  const [time, setTime] = React.useState <number>(0);
-  const { next} = React.useContext(AppContext);
-  // const { next, time, setTime } = useState();
-  
-  const ref = React.useRef<NodeJS.Timeout>();
+  const { nameCategory } = React.useContext(AppContext);
+  const [min, setMine] = React.useState<number>(1);
+  const [seg, setSeg] = React.useState<number>(60);
 
-  React.useEffect(() => {
-    ref.current && clearInterval( ref.current )
-    
-    if(time < 10){  
-      setTimeout(() => {
-        setTime(time + 1);
-      }, 1000)
-    }else if(time === 10){
-      setTime(0);
-      next();
-    }
-  }, [next, setTime, time])
+  const navigate = useNavigate();
 
-  // console.log(time);
+  // React.useEffect(() => {
+  //   if (seg === 0 && min === 0) {
+  //     navigate("/results");
+  //   } else if (seg !== 0) {
+  //     setTimeout(() => {
+  //       setSeg(seg - 1);
+  //     }, 1000);
+  //   } else if (seg === 0) {
+  //     setMine(min - 1);
+  //     setSeg(60);
+  //     setTimeout(() => {
+  //       setSeg(seg - 1);
+  //     }, 1000);
+  //   }
+  // }, [min, navigate, seg]);
 
   return (
-    <div>Chronometer: {time}</div>
-  )
-}
+    <div className="Chronometer">
+      <div className="Chronometer-category">
+        <p>{nameCategory}</p>
+      </div>
+      {seg <= 9 ? (
+        <p className="Chronometer-time">
+          <RxLapTimer /> 0{min}:0{seg}
+        </p>
+      ) : (
+        <p className="Chronometer-time">
+          <RxLapTimer /> 0{min}:{seg}
+        </p>
+      )}
+    </div>
+  );
+};

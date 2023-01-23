@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-// import { useState } from "../hooks/useState";
 import { AppContext } from "./AppContext";
 import { GeneralCulture } from "../types";
+import { MdDoubleArrow } from 'react-icons/md'
+import '../styles/CardQuestion.css'
 
 export function CardQuestion() {
   const navigate = useNavigate();
@@ -15,16 +16,6 @@ export function CardQuestion() {
       next,
       sendButton,
     } = React.useContext(AppContext);
-
-    // const 
-    // { 
-    //   position, 
-    //   categorySelected, 
-    //   answerSelect,
-    //   next,
-    //   sendButton,
-    // } = useState();
-
     
     const eachQuestion: GeneralCulture = categorySelected[position];
     const a = eachQuestion.optionA;
@@ -32,29 +23,32 @@ export function CardQuestion() {
     const c = eachQuestion.optionC;
     const d = eachQuestion.optionD;
     
-    const redirectToAnswer = () => {
-      navigate('/results')
-    }
+    const redirectToAnswer = () => navigate('/results');
+    
 
   return (
-    <div className="App">
-      <h2>{eachQuestion.ask}</h2>
-      <p id="one" onClick={() => answerSelect("one", a.replay)}>
+    <div className="CardQuestion">
+      <h2 className="CardQuestion-question">{eachQuestion.ask}</h2>
+      <p id="one" 
+        onClick={() => answerSelect("one", a.replay)}>
         {a.text}
       </p>
-      <p id="two" onClick={() => answerSelect("two", b.replay)}>
+      <p id="two" 
+        onClick={() => answerSelect("two", b.replay)}>
         {b.text}
       </p>
-      <p id="three" onClick={() => answerSelect("three", c.replay)}>
+      <p id="three" 
+        onClick={() => answerSelect("three", c.replay)}>
         {c.text}
       </p>
-      <p id="four" onClick={() => answerSelect("four", d.replay)}>
+      <p id="four" 
+        onClick={() => answerSelect("four", d.replay)}>
         {d.text}
       </p>
       {
         !sendButton ? 
-        <button onClick={next}>Next</button>
-        :<button onClick={redirectToAnswer}>Send</button>
+        <button className="CardQuestion-btn__next" onClick={next}>Next < MdDoubleArrow/></button>
+        :<button className="CardQuestion-btn__send" onClick={redirectToAnswer}>Send</button>
       }
     </div>
   );

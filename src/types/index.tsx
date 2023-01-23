@@ -24,8 +24,7 @@ export type GeneralCulture = {
 };
 
 export type AppContextType = {
-  // time: number,
-  // setTime: (n: number) => void,
+  nameCategory: string,
   position: number;
   score: number;
   sendAnswer: boolean;
@@ -34,5 +33,12 @@ export type AppContextType = {
   sendButton: boolean;
   answerSelect: (id: string, response: boolean) => void;
   next: () => void;
+  categorySelectedModal: (id: string, category: GeneralCulture[]) => void;
 };
 
+export type OneCategory = {
+  id: string, 
+  category: GeneralCulture[], 
+  name:string,
+  clase:string
+}

@@ -1,19 +1,20 @@
 import React from "react";
-// import { generalCulture } from "../questions/generalCulture";
-// import { GeneralCulture } from "../types";
+import { Header } from "./Header";
 import { CardQuestion } from "./CardQuestion";
 import { CategoriesQuestions } from "./CategoriesQuestions";
 import { Chronometer } from "./Chronometer";
-import { Header } from "./Header";
+import '../styles/Home.css'
 
 export const Home = () => {
-
   return (
-    <div>
+    <div className="Home">
       <Header />
-      <CategoriesQuestions />
-      {/* <Chronometer /> */}
-      <CardQuestion />
+      <div className="Home-main">
+        <CategoriesQuestions />
+        <Chronometer />
+        <CardQuestion />
+      </div>
+      <p className="Home-created">Created by Alic Barandica 🖐🏾.</p>
     </div>
   );
 };

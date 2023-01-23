@@ -1,5 +1,5 @@
 import React from "react";
-import { AppContext } from "./AppContext";
+import { EachCategory } from "./EachCategory";
 import { generalCulture } from "../questions/generalCulture";
 import { sport } from "../questions/sport";
 import { animals } from "../questions/animals";
@@ -7,31 +7,63 @@ import { cities } from "../questions/cities";
 import { javascript } from "../questions/javascript";
 import { html } from "../questions/html";
 import { css } from "../questions/css";
-import { GeneralCulture } from "../types";
-import '../styles/CategoryQuestions.css';
+import { ContacMe } from "./ContacMe";
+import "../styles/CategoryQuestions.css";
 
-export function CategoriesQuestions () {
 
-  const { position, setCategorySelected } = React.useContext(AppContext);
-  // const { position, setCategorySelected } = useState();
+export function CategoriesQuestions() {
 
-  const chooseCategory = (category: GeneralCulture[]) => {
-    position > 0 ?
-    alert('For choose another category you must finish this')
-    : setCategorySelected(category)
-  }
-
-  return(
+  return (
     <div className="CategoriesQuestions unshow">
-      <ul className="CategoriesQuestions-list">
-        <li onClick={() => chooseCategory(generalCulture)}>General Culture</li>
-        <li onClick={() => chooseCategory(sport)}>Sports</li>
-        <li onClick={() => chooseCategory(animals)}>Animals</li>
-        <li onClick={() => chooseCategory(cities)}>Cities</li>
-        <li onClick={() => chooseCategory(javascript)}>Javascript</li>
-        <li onClick={() => chooseCategory(html)}>Html</li>
-        <li onClick={() => chooseCategory(css)}>Css</li>
-      </ul>
+      <div className="CategoriesQuestions-container">
+        <ul className="CategoriesQuestions-container__list">
+        <h2 className="CategoriesQuestion-container__title">Categories</h2>
+          <EachCategory
+            id='General Culture'
+            category={generalCulture}
+            name='General Culture'
+            clase="selected"
+          />
+          <EachCategory 
+            id='Sport'
+            category={sport}
+            name='Sports'
+            clase=""
+          />
+          <EachCategory 
+            id='Animals'
+            category={animals}
+            name='Animals'
+            clase=""
+          />
+          <EachCategory 
+            id='Cities'
+            category={cities}
+            name='Cities'
+            clase=""
+          />
+          <h3 className="CategoriesQuestion-list__subtitle">Web Development</h3>
+          <EachCategory 
+            id='Javascript'
+            category={javascript}
+            name='Javascript'
+            clase=""
+          />
+          <EachCategory 
+            id='Html'
+            category={html}
+            name='Html'
+            clase=""
+          />
+          <EachCategory 
+            id='Css'
+            category={css}
+            name='Css'
+            clase=""
+          />
+        </ul>
+        <ContacMe />
+      </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,17 @@
+.ContacMe{
+  height: 120px;
+}
+.ContacMe-container li{
+  display: flex;
+  list-style: none;
+  font-size: 1.7rem;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.ContacMe-container li a{
+  text-decoration: none;
+  color: var(--main-text);
+}
+.ContacMe-container__icon{
+  margin-right: 10px;
+}
