@@ -1,26 +1,18 @@
-.Header{
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--main-text);
-  border-radius: 0 0 5px 5px;
-  padding: 0 20px;
-}
 .Header-menu{
-  display: flex;
-  align-items: center;
-  color: var(--background);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--details);
   font-size: 3rem;
   cursor: pointer;
-  z-index: 3;
+  z-index: 2;
 }
 .Header-menu:hover{
-  transform: rotate(180deg);
+  transform: rotate(360deg);
   transition: transform ease-in-out 0.5s;
 }
-/* @media(min-width:1000px){
-  .Header-menu{
-    display: none;
+  @media(min-width:768px){
+    .Header{
+      display: none;
+    }
   }
-} */

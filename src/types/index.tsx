@@ -24,6 +24,8 @@ export type GeneralCulture = {
 };
 
 export type AppContextType = {
+  start: boolean, 
+  setStart: (arg: boolean) => void,
   nameCategory: string,
   position: number;
   score: number;
@@ -40,5 +42,5 @@ export type OneCategory = {
   id: string, 
   category: GeneralCulture[], 
   name:string,
-  clase:string
+  clase?:string,
 }

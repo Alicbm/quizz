@@ -15,9 +15,6 @@ export const Header = () => {
 
   return (
     <div className='Header'>
-      <div className='Header-logo'>
-        logo
-      </div>
       <div className='Header-menu'
         onClick={showCategories}
       >

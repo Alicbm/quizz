@@ -1,5 +1,6 @@
 .CardQuestion{
   width: 100%;
+  min-width: 100%;
   max-width: 500px;
   min-height: 430px;
   display: grid;
@@ -9,6 +10,7 @@
   border-radius: 5px;
   padding: 15px 0;
   margin: 0 auto;
+  opacity: 0.8;
 }
 .CardQuestion-question{
   width: 90%;
@@ -23,17 +25,20 @@
   display: grid;
   place-items: center;
   color: var(--main-text);
+  background-color: var(--background-second);
   text-align: center;
   font-size: 1.7rem;
   font-weight: 600;
   border-radius: 5px;
-  border: 1px solid var(--main-text);
+  /* border: 1px solid var(--details); */
   cursor: pointer;
   margin: 0 auto;
 }
 .CardQuestion p:hover, .CardQuestion .active{
   color: var(--background);
   background-color: var(--main-text);
+  border: 1px solid var(--details);
+  color: var(--details);
 }
 .CardQuestion-btn__next{
   width: 100px;
@@ -42,14 +47,15 @@
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: var(--background);
+  font-weight: 600;
+  color: var(--details);
   background-color: var(--main-text);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 .CardQuestion-btn__next:hover{
-  background-color: #ad8162;
+  background-color: black;
 }
 .CardQuestion-btn__send{
   width: 100px;
@@ -58,9 +64,20 @@
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: var(--background);
-  background-color: black;
+  font-weight: 600;
+  color: var(--main-text);
+  background-color: var(--details);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+@media(min-width:768px){
+  .CardQuestion{
+    min-width: 400px;
+  }
+}
+@media(min-width:1000px){
+  .CardQuestion{
+    min-width: 450px;
+  }
 }

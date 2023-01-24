@@ -1,7 +1,17 @@
 :root{
-  --background: #d3c8b8;
+  /* --background: #d3c8b8;
   --background-second: #ddd4c7;
-  --main-text: #a57434;
+  --main-text: #a57434; */
+  
+  
+  /* --background: #fde1da;
+  --background-second: #fcfcfc;
+  --main-text: #fa724e; */
+
+  --background: #c7c7c7;
+  --background-second: #d8d6da;
+  --main-text: #161616;
+  --details: #c20909;
 }
 
 *{
@@ -18,4 +28,5 @@ body{
   width: 100%;
   height: 100vh;
   background-color:var(--background-second);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('./images/background.jpg');
 }

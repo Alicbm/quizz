@@ -3,12 +3,12 @@ import { AppContext } from "./AppContext";
 import { OneCategory } from "../types";
 
 export function EachCategory({id, category, name, clase}:OneCategory):JSX.Element {
-  const { categorySelectedModal } = React.useContext(AppContext);
+  const { categorySelectedModal, nameCategory } = React.useContext(AppContext);
 
   return (
     <li
       id={id}
-      className={clase}
+      className={id === nameCategory ? clase + 'selected' : clase }
       onClick={() => categorySelectedModal(id, category)}
     >
       {name}

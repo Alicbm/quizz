@@ -5,6 +5,7 @@ import { generalCulture } from '../questions/generalCulture';
 export const AppContext = React.createContext<AppContextType> ({} as AppContextType);
 
 export function ContainerApp({ children }: Props){
+  const [start, setStart] = React.useState <boolean> (false);
   const [nameCategory, setNameCategory] = React.useState <string> ('General Culture');
   const [position, setPosition] = React.useState <number> (0);
   const [score, setScore] = React.useState <number> (0);
@@ -44,7 +45,7 @@ export function ContainerApp({ children }: Props){
 
   const unShowModal = (category: GeneralCulture[]) => {
     setCategorySelected(category);
-    // document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
+    document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
   };
 
   const chooseCategory = (category: GeneralCulture[]) => {
@@ -64,6 +65,8 @@ export function ContainerApp({ children }: Props){
 
   return(
     <AppContext.Provider value={{
+      start, 
+      setStart,
       nameCategory, 
       position, 
       score,
