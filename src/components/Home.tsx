@@ -1,11 +1,11 @@
 import React from "react";
+import { AppContext } from "./AppContext";
 import { Header } from "./Header";
 import { CardQuestion } from "./CardQuestion";
 import { CategoriesQuestions } from "./CategoriesQuestions";
 import { Chronometer } from "./Chronometer";
-import "../styles/Home.css";
-import { AppContext } from "./AppContext";
 import { StartQuiz } from "./StartQuiz";
+import "../styles/Home.css";
 
 export const Home = () => {
   const { start } = React.useContext(AppContext);

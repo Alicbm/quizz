@@ -1,12 +1,10 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
 import { AppContext } from "./AppContext";
 import { GeneralCulture } from "../types";
 import { MdDoubleArrow } from 'react-icons/md'
 import '../styles/CardQuestion.css'
 
 export function CardQuestion() {
-  const navigate = useNavigate();
   
   const 
     { 
@@ -15,6 +13,7 @@ export function CardQuestion() {
       answerSelect,
       next,
       sendButton,
+      redirectToAnswer
     } = React.useContext(AppContext);
     
     const eachQuestion: GeneralCulture = categorySelected[position];
@@ -22,8 +21,6 @@ export function CardQuestion() {
     const b = eachQuestion.optionB;
     const c = eachQuestion.optionC;
     const d = eachQuestion.optionD;
-    
-    const redirectToAnswer = () => navigate('/results');
     
 
   return (

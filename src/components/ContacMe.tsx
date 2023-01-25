@@ -37,7 +37,7 @@ export const ContacMe = () => {
         <li>
           <p>
             <a
-              href="https://github.com/Alicbm/pelisflix"
+              href="https://github.com/Alicbm/quizz"
               target="_blank"
               rel="noopener noreferrer"
             >

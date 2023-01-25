@@ -11,21 +11,21 @@ export const Chronometer = () => {
 
   const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   if (seg === 0 && min === 0) {
-  //     navigate("/results");
-  //   } else if (seg !== 0) {
-  //     setTimeout(() => {
-  //       setSeg(seg - 1);
-  //     }, 1000);
-  //   } else if (seg === 0) {
-  //     setMine(min - 1);
-  //     setSeg(60);
-  //     setTimeout(() => {
-  //       setSeg(seg - 1);
-  //     }, 1000);
-  //   }
-  // }, [min, navigate, seg]);
+  React.useEffect(() => {
+    if (min === 0 && seg === 0) {
+      navigate("/results");
+    } else if (seg !== 0) {
+      setTimeout(() => {
+        setSeg(seg - 1);
+      }, 1000);
+    } else if (seg === 0) {
+      setMine(min - 1);
+      setSeg(60);
+      setTimeout(() => {
+        setSeg(seg - 1);
+      }, 1000);
+    }
+  }, [min, navigate, seg]);
 
   return (
     <div className="Chronometer">
