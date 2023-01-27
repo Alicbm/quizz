@@ -1,11 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "./AppContext";
-import { RxLapTimer } from 'react-icons/rx'
-import '../styles/Chronometer.css'
+import { RxLapTimer } from "react-icons/rx";
+import "../styles/Chronometer.css";
 
 export const Chronometer = () => {
-  const { nameCategory } = React.useContext(AppContext);
+  const {
+    nameCategory,
+    setStart,
+    handleSelect,
+    setPosition,
+    setScore,
+    response,
+    setResponse,
+  } = React.useContext(AppContext);
   const [min, setMine] = React.useState<number>(1);
   const [seg, setSeg] = React.useState<number>(60);
 
@@ -13,7 +21,13 @@ export const Chronometer = () => {
 
   React.useEffect(() => {
     if (min === 0 && seg === 0) {
+      setResponse(false);
+      handleSelect(response);
+      setScore(false);
+
       navigate("/results");
+      setPosition(0);
+      setStart(false);
     } else if (seg !== 0) {
       setTimeout(() => {
         setSeg(seg - 1);
@@ -25,7 +39,17 @@ export const Chronometer = () => {
         setSeg(seg - 1);
       }, 1000);
     }
-  }, [min, navigate, seg]);
+  }, [
+    handleSelect,
+    min,
+    navigate,
+    response,
+    seg,
+    setPosition,
+    setResponse,
+    setScore,
+    setStart,
+  ]);
 
   return (
     <div className="Chronometer">

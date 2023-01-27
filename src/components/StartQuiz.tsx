@@ -3,7 +3,7 @@ import { AppContext } from "./AppContext";
 import "../styles/StartQuiz.css";
 
 export const StartQuiz = () => {
-  const { nameCategory, setStart } = React.useContext(AppContext);
+  const { nameCategory, resetValues } = React.useContext(AppContext);
 
   return (
     <div className="StartQuiz">
@@ -13,7 +13,7 @@ export const StartQuiz = () => {
           You are in the "{nameCategory}" category, if you are ready to start the
           quizz, press the button. You can change this category.
         </p>
-        <button className="StartQuiz-container__button" onClick={() => setStart(true)}>
+        <button className="StartQuiz-container__button" onClick={resetValues}>
           Start
         </button>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { AppContext } from "./AppContext";
 import { sport } from "../questions/sport";
 import { EachCategory } from "./EachCategory";
 
@@ -12,7 +13,11 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Welcome.css";
 
 export const Welcome = () => {
+  const { setPosition, setStart } = React.useContext(AppContext);
   const navigate = useNavigate();
+
+  setPosition(0);
+  setStart(false)
 
   return (
     <div className="Welcome">

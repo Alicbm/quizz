@@ -54,16 +54,19 @@ export type AppContextType = {
   setStart: (arg: boolean) => void;
   nameCategory: string;
   position: number;
+  setPosition: (arg: number) => void;
   redirectToAnswer: () => void,
-  // setPosition: (arg: number) => void, 
-  // score: number;
-  sendAnswer: boolean;
   categorySelected: GeneralCulture[];
   setCategorySelected: (category: GeneralCulture[]) => void;
   sendButton: boolean;
   answerSelect: (id: string, response: boolean) => void;
   next: () => void;
   categorySelectedModal: (id: string, category: GeneralCulture[]) => void;
+  resetValues: () => void;
+  setResponse: (arg: boolean) => void;
+  response: boolean;
+  handleSelect: (arg: boolean) => void;
+  setScore: (arg: boolean) => void;
 };
 
 export type OneCategory = {
