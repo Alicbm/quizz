@@ -3,7 +3,6 @@ import { AppContextType, GeneralCulture, Props } from "../types";
 import { generalCulture } from "../questions/generalCulture";
 import { useNavigate } from "react-router-dom";
 
-
 export const AppContext = React.createContext<AppContextType>(
   {} as AppContextType
 );
@@ -35,51 +34,19 @@ export function ContainerApp({ children }: Props) {
     if (replay && score) {
       switch (nameCategory) {
         case "General Culture":
-          setGeneral(general + 1);
-          break;
+          return setGeneral(general + 1);
         case "Sport":
-          setSport(sport + 1);
-          break;
+          return setSport(sport + 1);
         case "Animals":
-          setAnimals(animals + 1);
-          break;
+          return setAnimals(animals + 1);
         case "Cities":
-          setCities(cities + 1);
-          break;
+          return setCities(cities + 1);
         case "Javascript":
-          setJs(js + 1);
-          break;
+          return setJs(js + 1);
         case "HTML":
-          setHtml(html + 1);
-          break;
+          return setHtml(html + 1);
         default:
-          setCss(css + 1);
-          break;
-      }
-    } 
-    else if(!replay){
-      switch (nameCategory) {
-        case "General Culture":
-          setGeneral(general);
-          break;
-        case "Sport":
-          setSport(sport);
-          break;
-        case "Animals":
-          setAnimals(animals);
-          break;
-        case "Cities":
-          setCities(cities);
-          break;
-        case "Javascript":
-          setJs(js);
-          break;
-        case "HTML":
-          setHtml(html);
-          break;
-        default:
-          setCss(css);
-          break;
+          return setCss(css + 1);
       }
     }
   };
@@ -90,11 +57,10 @@ export function ContainerApp({ children }: Props) {
     day?.classList.add("active");
 
     setScore(true);
-    setResponse(res)
+    setResponse(res);
   };
 
   const next = (): void => {
-    
     handleSelect(response);
     setScore(false);
 
@@ -107,68 +73,48 @@ export function ContainerApp({ children }: Props) {
     }
   };
 
-  const unShowModal = (category: GeneralCulture[]) => {
-    setCategorySelected(category);
-    document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
-  };
-
-  const chooseCategory = (category: GeneralCulture[]) => {
-    position > 0
-      ? alert("For choose another category you must finish this")
-      : unShowModal(category);
-  };
-
   const categorySelectedModal = (
     id: string,
     category: GeneralCulture[]
   ): void => {
-    document.querySelector(".selected")?.classList.remove("selected");
-    const day: HTMLElement | null = document.getElementById(id);
-    day?.classList.add("selected");
+    position > 0
+      ? alert("For choose another category you must finish this")
+      : document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
 
     setNameCategory(id);
-    chooseCategory(category);
+    setCategorySelected(category);
   };
 
   const redirectToAnswer = () => {
     handleSelect(response);
-    setScore(false);
-
     navigate("/results");
     setPosition(0);
     setSendButton(false);
     setStart(false);
-    setResponse(false)
+    setResponse(false);
   };
 
   const resetValues = () => {
-    setScore(true)
-    setStart(true)
+    setScore(true);
+    setStart(true);
 
     switch (nameCategory) {
       case "General Culture":
-        setGeneral(0);
-        break;
+        return setGeneral(0);
       case "Sport":
-        setSport(0);
-        break;
+        return setSport(0);
       case "Animals":
-        setAnimals(0);
-        break;
+        return setAnimals(0);
       case "Cities":
-        setCities(0);
-        break;
+        return setCities(0);
       case "Javascript":
-        setJs(0);
-        break;
+        return setJs(0);
       case "HTML":
-        setHtml(0);
-        break;
+        return setHtml(0);
       default:
         setCss(0);
     }
-  }
-    
+  };
 
   return (
     <AppContext.Provider
@@ -188,16 +134,11 @@ export function ContainerApp({ children }: Props) {
         position,
         redirectToAnswer,
         categorySelected,
-        setCategorySelected,
         sendButton,
         answerSelect,
         next,
         categorySelectedModal,
         resetValues,
-        setResponse,
-        response,
-        handleSelect,
-        setScore,
       }}
     >
       {children}

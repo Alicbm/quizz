@@ -3,9 +3,8 @@
   gap: 10px;
 }
 .StartQuiz-container{
-  width: 100%;
-  min-width: 300px;
-  max-width: 500px;
+  width: 90%;
+  max-width: 400px;
   min-height: 250px;
   display: grid;
   place-items: center;
@@ -48,5 +47,11 @@
 @media(min-width:768px){
   .StartQuiz{
     margin-left: 300px;
+  }
+}
+
+@media(min-width:900px){
+  .StartQuiz-container{
+    max-width: 500px;
   }
 }

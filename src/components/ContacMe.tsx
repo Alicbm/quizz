@@ -1,8 +1,7 @@
-import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
-import '../styles/ContacMe.css'
+import "../styles/ContacMe.css";
 
 export const ContacMe = () => {
   return (

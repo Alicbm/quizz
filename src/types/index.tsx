@@ -23,25 +23,6 @@ export type GeneralCulture = {
   };
 };
 
-export type InitialState = {
-  generalculture?: number;
-  sport?: number;
-  animals?: number;
-  cities?: number;
-  html?: number;
-  js?: number;
-  css?: number;
-};
-
-export type AllCategories =
-  | { type: "generalculture"; payload: number }
-  | { type: "sports"; payload: number }
-  | { type: "animals"; payload: number }
-  | { type: "cities"; payload: number }
-  | { type: "html"; payload: number }
-  | { type: "js"; payload: number }
-  | { type: "css"; payload: number };
-
 export type AppContextType = {
   general: number;
   sport: number;
@@ -56,17 +37,12 @@ export type AppContextType = {
   position: number;
   setPosition: (arg: number) => void;
   redirectToAnswer: () => void,
-  categorySelected: GeneralCulture[];
-  setCategorySelected: (category: GeneralCulture[]) => void;
+  categorySelected: GeneralCulture[];//setCategorySelected: (category: GeneralCulture[]) => void;
   sendButton: boolean;
   answerSelect: (id: string, response: boolean) => void;
   next: () => void;
   categorySelectedModal: (id: string, category: GeneralCulture[]) => void;
-  resetValues: () => void;
-  setResponse: (arg: boolean) => void;
-  response: boolean;
-  handleSelect: (arg: boolean) => void;
-  setScore: (arg: boolean) => void;
+  resetValues: () => void;//response: boolean;
 };
 
 export type OneCategory = {

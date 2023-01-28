@@ -2,7 +2,6 @@ import React from "react";
 import { AppContext } from "./AppContext";
 import { sport } from "../questions/sport";
 import { EachCategory } from "./EachCategory";
-
 import { animals } from "../questions/animals";
 import { cities } from "../questions/cities";
 import { javascript } from "../questions/javascript";
@@ -13,8 +12,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Welcome.css";
 
 export const Welcome = () => {
-  const { setPosition, setStart } = React.useContext(AppContext);
   const navigate = useNavigate();
+  const { setPosition, setStart } = React.useContext(AppContext);
 
   setPosition(0);
   setStart(false)

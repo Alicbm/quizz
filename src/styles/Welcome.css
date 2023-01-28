@@ -1,19 +1,20 @@
 .Welcome{
   width: 100%;
   max-width: 650px;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
 }
 .Welcome-title{
-  width: 100%;
+  width: 90%;
   font-size: 4rem;
   font-weight: 800;
   color: var(--details);
   text-align: center;
+  margin: 0 auto;
 }
 .Welcome-text{
   width: 90%;
@@ -64,7 +65,11 @@
     max-width: 450px;
   }
 }
-@media(min-width:800px){
+@media(min-width:768px){
+  .Welcome{
+    height: 80vh;
+    padding-top: 80px;
+  }
   .Welcome-list{
     width: 80%;
     max-width: 550px;
