@@ -4,18 +4,14 @@ import { OneCategory } from "../types";
 
 export function EachCategory({
   id,
-  category,
   name,
   clase,
 }: OneCategory): JSX.Element {
   const { categorySelectedModal, nameCategory, getInfoApi } = React.useContext(AppContext);
 
   const callback = () => {
-    categorySelectedModal(name, category)
+    categorySelectedModal(name)
     getInfoApi(id);
-    // console.log(id);
-    
-    // setCtaegoryPosition(id)
   }
   
   return (

@@ -39,28 +39,16 @@ export type AppContextType = {
   setPosition: (arg: number) => void;
   redirectToAnswer: () => void,
   categorySelected: GeneralCulture[];
-  //setCategorySelected: (category: GeneralCulture[]) => void;
   sendButton: boolean;
   answerSelect: (id: string, response: boolean) => void;
   next: () => void;
-  categorySelectedModal: (id: string, category: GeneralCulture[]) => void;
-  resetValues: () => void;//response: boolean;
+  categorySelectedModal: (id: string) => void;
+  resetValues: () => void;
   getInfoApi: (arg: string) => void
 };
 
-export type ApiRest = {
-  animals: GeneralCulture[];
-  cities: GeneralCulture[];
-  css: GeneralCulture[];
-  generalCulture: GeneralCulture[];
-  html: GeneralCulture[];
-  javascript: GeneralCulture[];
-  sports: GeneralCulture[];
-}; 
-
 export type OneCategory = {
   id: string;
-  category: GeneralCulture[];
   name: string;
   clase?: string;
 };

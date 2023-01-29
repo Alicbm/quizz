@@ -1,19 +1,17 @@
 import React from "react";
 import { AppContext } from "./AppContext";
-
-import { generalCulture as categoryGeneral} from "../questions/generalCulture";
-import { sport as categorySport} from "../questions/sport";
-import { animals as categoryAnimals} from "../questions/animals";
-import { cities as categoryCities} from "../questions/cities";
-import { javascript as categoryJs} from "../questions/javascript";
-import { html as categoryHtml} from "../questions/html";
-import { css as categoryCss} from "../questions/css";
-
 import "../styles/ResultsQuestions.css";
 
 export const ResultsQuestions = () => {
-  const { general, sport, animals, cities, html, js, css } =
-    React.useContext(AppContext);
+  const { 
+    general, 
+    sport, 
+    animals, 
+    cities, 
+    html, 
+    js, 
+    css, 
+  } = React.useContext(AppContext);
 
   return (
     <div className="ResultsQuestions">
@@ -22,31 +20,31 @@ export const ResultsQuestions = () => {
       </h1>
       <div className="ResultsQuestions-card">
         <h2>General Culture</h2>
-        <p>Result: {general} / {categoryGeneral.length}</p>
+        <p>Result: {general} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Sport</h2>
-        <p>Result: {sport} / {categorySport.length}</p>
+        <p>Result: {sport} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Animals</h2>
-        <p>Result: {animals} / {categoryAnimals.length }</p>
+        <p>Result: {animals} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Cities</h2>
-        <p>Result: {cities} / {categoryCities.length}</p>
+        <p>Result: {cities} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>HTML</h2>
-        <p>Result: {html} / {categoryHtml.length}</p>
+        <p>Result: {html} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Javascript</h2>
-        <p>Result: {js} / {categoryJs.length}</p>
+        <p>Result: {js} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>CSS</h2>
-        <p>Result: {css} / {categoryCss.length}</p>
+        <p>Result: {css} / 15</p>
       </div>
     </div>
   );

@@ -1,28 +1,37 @@
 import React from "react";
-import { ApiRest, AppContextType, GeneralCulture, Props } from "../types";
-import { generalCulture } from "../questions/generalCulture";
+import { AppContextType, GeneralCulture, Props } from "../types";
 import { useNavigate } from "react-router-dom";
 import { getCategories } from "../api";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const AppContext = React.createContext<AppContextType>(
   {} as AppContextType
 );
 
 export function ContainerApp({ children }: Props) {
+
+  // Local Storage
+  const generalStorage = useLocalStorage ('GENERAL_V1');
+  const sportStorage = useLocalStorage('SPORT_V1');
+  const animalsStorage = useLocalStorage('ANIMAL_V1');
+  const citiesStorage = useLocalStorage('CITY_V1');
+  const htmlStorage = useLocalStorage('HTML_V1');
+  const jsStorage = useLocalStorage('JS_V1');
+  const cssStorage = useLocalStorage('CSS_V1');
+
   const navigate = useNavigate();
 
-  const [general, setGeneral] = React.useState(0);
-  const [sport, setSport] = React.useState(0);
-  const [animals, setAnimals] = React.useState(0);
-  const [cities, setCities] = React.useState(0);
-  const [html, setHtml] = React.useState(0);
-  const [js, setJs] = React.useState(0);
-  const [css, setCss] = React.useState(0);
+  const [general, setGeneral] = React.useState <number> (generalStorage.scoreGeneral);
+  const [sport, setSport] = React.useState <number> (sportStorage.scoreGeneral);
+  const [animals, setAnimals] = React.useState <number> (animalsStorage.scoreGeneral);
+  const [cities, setCities] = React.useState <number> (citiesStorage.scoreGeneral);
+  const [html, setHtml] = React.useState <number> (htmlStorage.scoreGeneral);
+  const [js, setJs] = React.useState <number> (jsStorage.scoreGeneral);
+  const [css, setCss] = React.useState <number> (cssStorage.scoreGeneral);
 
   const [start, setStart] = React.useState<boolean>(false);
-  const [categoryPosition, setCtaegoryPosition] = React.useState<string>('animals');
-  const [nameCategory, setNameCategory] =
-    React.useState<string>("General Culture");
+  const [categoryPosition, setCtaegoryPosition] = React.useState<string>('general-culture');
+  const [nameCategory, setNameCategory] = React.useState<string>("General Culture");
   const [position, setPosition] = React.useState<number>(0);
   const [categorySelected, setCategorySelected] = React.useState<GeneralCulture[]>([]);
   const [sendButton, setSendButton] = React.useState<boolean>(false);
@@ -36,24 +45,31 @@ export function ContainerApp({ children }: Props) {
       switch (nameCategory) {
         case "General Culture":
           setGeneral(general + 1);
+          localStorage.setItem('GENERAL_V1', JSON.stringify(general + 1))
           break;
-        case "Sport":
+        case "Sports":
           setSport(sport + 1);
+          localStorage.setItem('GENERAL_V1', JSON.stringify(sport + 1))
           break;
         case "Animals":
           setAnimals(animals + 1);
+          localStorage.setItem('ANIMAL_V1', JSON.stringify(animals + 1))
           break;
         case "Cities":
           setCities(cities + 1);
+          localStorage.setItem('SPORT_V1', JSON.stringify(cities + 1))
           break;
         case "Javascript":
           setJs(js + 1);
+          localStorage.setItem('JS_V1', JSON.stringify(js + 1))
           break;
         case "HTML":
           setHtml(html + 1);
+          localStorage.setItem('HTML_V1', JSON.stringify(html + 1))
           break;
         default:
           setCss(css + 1);
+          localStorage.setItem('CSS_V1', JSON.stringify(css + 1))
           break;
       }
     }
@@ -83,7 +99,6 @@ export function ContainerApp({ children }: Props) {
 
   const categorySelectedModal = (
     name: string,
-    category: GeneralCulture[]
   ): void => {
     position > 0
       ? alert("For choose another category you must finish this")
@@ -104,31 +119,43 @@ export function ContainerApp({ children }: Props) {
   const resetValues = () => {
     setScore(true);
     setStart(true);
-
+    
     switch (nameCategory) {
       case "General Culture":
-        return setGeneral(0);
+        setGeneral(0);
+        localStorage.setItem('GENERAL_V1', JSON.stringify(0))
+        break;
       case "Sport":
-        return setSport(0);
+        setSport(0);
+        localStorage.setItem('SPORT_V1', JSON.stringify(0))
+        break;
       case "Animals":
-        return setAnimals(0);
+        setAnimals(0);
+        localStorage.setItem('ANIMAL_V1', JSON.stringify(0))
+        break;
       case "Cities":
-        return setCities(0);
+        setCities(0);
+        localStorage.setItem('CITY_V1', JSON.stringify(0))
+        break;
       case "Javascript":
-        return setJs(0);
+        setJs(0);
+        localStorage.setItem('JS_V1', JSON.stringify(0))
+        break;
       case "HTML":
-        return setHtml(0);
+        setHtml(0);
+        localStorage.setItem('HTML_V1', JSON.stringify(0))
+        break;
       default:
         setCss(0);
+        localStorage.setItem('CSS_V1', JSON.stringify(0))
     }
   };
 
-  const getInfoApi = async (category: string) => {
+  const getInfoApi = async (category: string = categoryPosition) => {
     const info = await getCategories(category);
     setCategorySelected(info);
   };
 
-  // console.log(categorySelected);
 
   return (
     <AppContext.Provider
