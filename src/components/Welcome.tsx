@@ -18,6 +18,10 @@ export const Welcome = () => {
   setPosition(0);
   setStart(false)
 
+  // React.useEffect(() => {
+  //   getInfoApi()
+  // }, [])
+
   return (
     <div className="Welcome">
       <h1 className="Welcome-title">Hi there, welcome!</h1>
@@ -26,24 +30,24 @@ export const Welcome = () => {
         have 2 minutes for complete each category, good luck.
       </p>
       <ul className="Welcome-list" onClick={() => navigate("/quiz")}>
-        <EachCategory id="Sport" category={sport} name="Sports" clase="" />
+        <EachCategory id="sports" category={sport} name="Sports" clase="" />
 
-        <EachCategory id="Animals" category={animals} name="Animals" clase="" />
+        <EachCategory id="animals" category={animals} name="Animals" clase="" />
 
-        <EachCategory id="Cities" category={cities} name="Cities" clase="" />
+        <EachCategory id="cities" category={cities} name="Cities" clase="" />
         <EachCategory
-          id="Javascript"
+          id="javascript"
           category={javascript}
           name="Javascript"
           clase=""
         />
 
-        <EachCategory id="HTML" category={html} name="HTML" clase="" />
+        <EachCategory id="html" category={html} name="HTML" clase="" />
 
-        <EachCategory id="CSS" category={css} name="CSS" clase="" />
+        <EachCategory id="css" category={css} name="CSS" clase="" />
 
         <EachCategory
-          id="General Culture"
+          id="general-culture"
           category={generalCulture}
           name="General Culture"
           clase="Welcome-list__last selected"

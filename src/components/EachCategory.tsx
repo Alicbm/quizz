@@ -8,13 +8,21 @@ export function EachCategory({
   name,
   clase,
 }: OneCategory): JSX.Element {
-  const { categorySelectedModal, nameCategory } = React.useContext(AppContext);
+  const { categorySelectedModal, nameCategory, getInfoApi } = React.useContext(AppContext);
 
+  const callback = () => {
+    categorySelectedModal(name, category)
+    getInfoApi(id);
+    // console.log(id);
+    
+    // setCtaegoryPosition(id)
+  }
+  
   return (
     <li
       id={id}
-      className={id === nameCategory ? clase + "selected" : clase}
-      onClick={() => categorySelectedModal(id, category)}
+      className={name === nameCategory ? clase + "selected" : clase}
+      onClick={callback}
     >
       {name}
     </li>

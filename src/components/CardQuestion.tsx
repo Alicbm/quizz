@@ -1,6 +1,6 @@
 import React from "react";
 import { AppContext } from "./AppContext";
-import { GeneralCulture } from "../types";
+import { ApiRest, GeneralCulture } from "../types";
 import { MdDoubleArrow } from "react-icons/md";
 import "../styles/CardQuestion.css";
 
@@ -15,6 +15,8 @@ export function CardQuestion() {
   } = React.useContext(AppContext);
 
   const eachQuestion: GeneralCulture = categorySelected[position];
+  // console.log(eachQuestion);
+  
   const a = eachQuestion.optionA;
   const b = eachQuestion.optionB;
   const c = eachQuestion.optionC;

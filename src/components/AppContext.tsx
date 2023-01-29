@@ -1,7 +1,8 @@
 import React from "react";
-import { AppContextType, GeneralCulture, Props } from "../types";
+import { ApiRest, AppContextType, GeneralCulture, Props } from "../types";
 import { generalCulture } from "../questions/generalCulture";
 import { useNavigate } from "react-router-dom";
+import { getCategories } from "../api";
 
 export const AppContext = React.createContext<AppContextType>(
   {} as AppContextType
@@ -19,11 +20,11 @@ export function ContainerApp({ children }: Props) {
   const [css, setCss] = React.useState(0);
 
   const [start, setStart] = React.useState<boolean>(false);
+  const [categoryPosition, setCtaegoryPosition] = React.useState<string>('animals');
   const [nameCategory, setNameCategory] =
     React.useState<string>("General Culture");
   const [position, setPosition] = React.useState<number>(0);
-  const [categorySelected, setCategorySelected] =
-    React.useState<GeneralCulture[]>(generalCulture);
+  const [categorySelected, setCategorySelected] = React.useState<GeneralCulture[]>([]);
   const [sendButton, setSendButton] = React.useState<boolean>(false);
   const [response, setResponse] = React.useState<boolean>(false);
 
@@ -34,19 +35,26 @@ export function ContainerApp({ children }: Props) {
     if (replay && score) {
       switch (nameCategory) {
         case "General Culture":
-          return setGeneral(general + 1);
+          setGeneral(general + 1);
+          break;
         case "Sport":
-          return setSport(sport + 1);
+          setSport(sport + 1);
+          break;
         case "Animals":
-          return setAnimals(animals + 1);
+          setAnimals(animals + 1);
+          break;
         case "Cities":
-          return setCities(cities + 1);
+          setCities(cities + 1);
+          break;
         case "Javascript":
-          return setJs(js + 1);
+          setJs(js + 1);
+          break;
         case "HTML":
-          return setHtml(html + 1);
+          setHtml(html + 1);
+          break;
         default:
-          return setCss(css + 1);
+          setCss(css + 1);
+          break;
       }
     }
   };
@@ -74,15 +82,14 @@ export function ContainerApp({ children }: Props) {
   };
 
   const categorySelectedModal = (
-    id: string,
+    name: string,
     category: GeneralCulture[]
   ): void => {
     position > 0
       ? alert("For choose another category you must finish this")
       : document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
 
-    setNameCategory(id);
-    setCategorySelected(category);
+    setNameCategory(name);
   };
 
   const redirectToAnswer = () => {
@@ -116,6 +123,13 @@ export function ContainerApp({ children }: Props) {
     }
   };
 
+  const getInfoApi = async (category: string) => {
+    const info = await getCategories(category);
+    setCategorySelected(info);
+  };
+
+  // console.log(categorySelected);
+
   return (
     <AppContext.Provider
       value={{
@@ -129,6 +143,7 @@ export function ContainerApp({ children }: Props) {
 
         start,
         setStart,
+        setCtaegoryPosition,
         nameCategory,
         setPosition,
         position,
@@ -139,6 +154,7 @@ export function ContainerApp({ children }: Props) {
         next,
         categorySelectedModal,
         resetValues,
+        getInfoApi,
       }}
     >
       {children}
