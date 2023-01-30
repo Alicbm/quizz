@@ -49,7 +49,7 @@ export function ContainerApp({ children }: Props) {
           break;
         case "Sports":
           setSport(sport + 1);
-          localStorage.setItem('GENERAL_V1', JSON.stringify(sport + 1))
+          localStorage.setItem('SPORT_V1', JSON.stringify(sport + 1))
           break;
         case "Animals":
           setAnimals(animals + 1);
@@ -57,7 +57,7 @@ export function ContainerApp({ children }: Props) {
           break;
         case "Cities":
           setCities(cities + 1);
-          localStorage.setItem('SPORT_V1', JSON.stringify(cities + 1))
+          localStorage.setItem('CITY_V1', JSON.stringify(cities + 1))
           break;
         case "Javascript":
           setJs(js + 1);
