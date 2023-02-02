@@ -88,3 +88,13 @@
     width: 100%;
   }
 }
+@media(min-width:1700px){
+  .CategoriesQuestions{
+    min-width: 350px;
+    max-height: 1000px;
+  }
+  .CategoriesQuestions-container{
+    min-width: 350px;
+
+  }
+}

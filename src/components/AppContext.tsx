@@ -3,6 +3,8 @@ import { AppContextType, GeneralCulture, Props } from "../types";
 import { useNavigate } from "react-router-dom";
 import { getCategories } from "../api";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useStorageCategory } from "../hooks/useStorageCategory";
+import { useStorageClass } from "../hooks/useStorageClass";
 
 export const AppContext = React.createContext<AppContextType>(
   {} as AppContextType
@@ -11,6 +13,9 @@ export const AppContext = React.createContext<AppContextType>(
 export function ContainerApp({ children }: Props) {
 
   // Local Storage
+  const categoryStorage = useStorageCategory();
+  const classStorage = useStorageClass();
+  
   const generalStorage = useLocalStorage ('GENERAL_V1');
   const sportStorage = useLocalStorage('SPORT_V1');
   const animalsStorage = useLocalStorage('ANIMAL_V1');
@@ -31,9 +36,9 @@ export function ContainerApp({ children }: Props) {
 
   const [start, setStart] = React.useState<boolean>(false);
   const [categoryPosition, setCtaegoryPosition] = React.useState<string>('general-culture');
-  const [nameCategory, setNameCategory] = React.useState<string>("General Culture");
+  const [nameCategory, setNameCategory] = React.useState<string>(classStorage.scoreGeneral);
   const [position, setPosition] = React.useState<number>(0);
-  const [categorySelected, setCategorySelected] = React.useState<GeneralCulture[]>([]);
+  const [categorySelected, setCategorySelected] = React.useState<GeneralCulture[]>(categoryStorage.scoreGeneral);
   const [sendButton, setSendButton] = React.useState<boolean>(false);
   const [response, setResponse] = React.useState<boolean>(false);
 
@@ -104,6 +109,7 @@ export function ContainerApp({ children }: Props) {
       ? alert("For choose another category you must finish this")
       : document.querySelector(".CategoriesQuestions")?.classList.add("unshow");
 
+    localStorage.setItem('CLASS_V1', JSON.stringify(name))  
     setNameCategory(name);
   };
 
@@ -153,6 +159,7 @@ export function ContainerApp({ children }: Props) {
 
   const getInfoApi = async (category: string = categoryPosition) => {
     const info = await getCategories(category);
+    localStorage.setItem('CATEGORY_V1', JSON.stringify(info))
     setCategorySelected(info);
   };
 

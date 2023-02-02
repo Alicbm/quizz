@@ -3,6 +3,14 @@
   /* height: 100vh; */
   padding-bottom: 20px;
 }
+.arrow{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--details);
+  font-size: 5rem;
+  cursor: pointer;
+}
 .ResultsQuestions-title{
   width: 90%;
   font-size: 2.7rem;
@@ -10,7 +18,7 @@
   text-align: center;
   color: var(--details);
   padding: 30px 0;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   opacity: 0.6;
 }
 .ResultsQuestions-card{
@@ -61,13 +69,31 @@
 
 @media(min-width: 900px){
   .ResultsQuestions{
-    padding-top: 40px;
+    height: 90vh;
+    padding-top: 80px;
   } 
+  .arrow{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: var(--details);
+    font-size: 5rem;
+  }
   .ResultsQuestions-title{
-    font-size: 3.5rem;
-    margin-bottom: 30px;
+    font-size: 4rem;
+    margin: 0 auto 30px auto;
   }
   .ResultsQuestions-card{
     width: 30%;
+  }
+}
+@media(min-width:1700px){
+  .ResultsQuestions{
+    min-width: 800px;
+    height: auto;
+  }
+  .ResultsQuestions-card{
+    width: 400px;
+    height: 120px;
   }
 }

@@ -40,7 +40,7 @@ body {
     overflow: hidden;
   }
 }
-/* @media(min-width:1700px){
+@media(min-width:1700px){
   html{
     font-size: 100%;
   }
@@ -48,4 +48,11 @@ body {
     display: grid;
     place-items: center;  
   }
-} */
+  #root{
+    min-height: 1000px;
+    max-height: 1000px;
+    border: 1px solid var(--details);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}

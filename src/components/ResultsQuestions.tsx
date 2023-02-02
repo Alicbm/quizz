@@ -1,20 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "./AppContext";
+import { RiArrowLeftSLine } from "react-icons/ri";
 import "../styles/ResultsQuestions.css";
 
 export const ResultsQuestions = () => {
+  const navigate = useNavigate();
+
   const { 
+    setStart,
     general, 
     sport, 
     animals, 
     cities, 
     html, 
     js, 
-    css, 
-  } = React.useContext(AppContext);
+    css } = React.useContext(AppContext);
+
+    const returnQuizz = () => {
+      setStart(false)
+      navigate('/quiz')
+    }
 
   return (
     <div className="ResultsQuestions">
+      <span className="arrow" onClick={returnQuizz}>
+        <RiArrowLeftSLine />
+      </span>
       <h1 className="ResultsQuestions-title">
         Congratulations!! Here you can find all the results of every quiz
       </h1>

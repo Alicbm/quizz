@@ -81,3 +81,9 @@
     min-width: 450px;
   }
 }
+@media(min-width:1700px){
+  .CardQuestion{
+    min-width: 650px;
+    height: 550px;
+  }
+}
