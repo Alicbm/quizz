@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Quizz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi, welcome to my project.
+
+This time I present to you the quiz app, with which you can test your skills and knowledge in different categories.
+
+This app makes requests to an API I created earlier, for more information about this API you can visit the following link [api_quizz](https://api-quizz.vercel.app/api/v1 "api_quizz").
+
+Here you have access to 7 different categories, you have to choose a category on the welcome page, then you will have a quiz with 15 questions related to the category you chose. The quiz you have 2 minutes to complete it, if the time is up, the quiz is also over and you have access to the number of correct answers from all categories, you can try as many times as you want. Below I present the categories available in this questionnaire:
+
+- General culture
+- Animals
+- Sports
+- Cities
+- JavaScript
+- HTML
+- CSS
+
+[![Todo App](https://raw.githubusercontent.com/Alicbm/pelisflix/master/src/gif/pelisflix.gif "Pelisflix")](https://github.com/Alicbm/pelisflix/blob/master/src/gif/pelisflix.gif "Pelisflix")
 
 ## Available Scripts
 
@@ -31,16 +47,21 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## How to use it? :brain:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Clone this repository through the two must famous options:
+	1. `https://github.com/Alicbm/todo-app.git`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+	1. `git@github.com:Alicbm/todo-app.git`
+
+- Install the necessary dependencies.
+	`npm install`
+
+- initialize the application.
+	`npm start`
+- Enjoy of the application where you can test your knowledge and have fun :grin:
+
+*Ceated by Alic Barandica, Fronted Developer.*
