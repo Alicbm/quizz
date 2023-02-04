@@ -16,7 +16,7 @@ Here you have access to 7 different categories, you have to choose a category on
 - HTML
 - CSS
 
-[![Todo App](https://raw.githubusercontent.com/Alicbm/pelisflix/master/src/gif/pelisflix.gif "Pelisflix")](https://github.com/Alicbm/pelisflix/blob/master/src/gif/pelisflix.gif "Pelisflix")
+[![quizz](https://raw.githubusercontent.com/Alicbm/quizz/master/src/gif/quizz.gif "Quizz")](https://github.com/Alicbm/quizz/blob/master/src/gif/quizz.gif "Quizz")
 
 ## Available Scripts
 
