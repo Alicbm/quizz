@@ -6,10 +6,13 @@ import "../styles/Welcome.css";
 
 export const Welcome = () => {
   const navigate = useNavigate();
-  const { setPosition, setStart } = React.useContext(AppContext);
+  const { dispatch } = React.useContext(AppContext);
 
-  setPosition(0);
-  setStart(false)
+  dispatch({ type: 'position', payload: 0 })
+  dispatch({ type: 'start', payload: false })
+
+  // setPosition(0);
+  // setStart(false)
 
   return (
     <div className="Welcome">

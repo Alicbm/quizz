@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export interface Props {
   children: JSX.Element | JSX.Element[];
 }
@@ -24,22 +26,24 @@ export type GeneralCulture = {
 };
 
 export type AppContextType = {
-  general: number;
-  sport: number;
-  animals: number;
-  cities: number;
-  html: number;
-  js: number;
-  css: number;
-  start: boolean;
-  setStart: (arg: boolean) => void;
-  setCtaegoryPosition: (arg: string) => void
-  nameCategory: string;
-  position: number;
-  setPosition: (arg: number) => void;
+  // general: number;
+  // sport: number;
+  // animals: number;
+  // cities: number;
+  // html: number;
+  // js: number;
+  // css: number;
+  state: InitialState,
+  dispatch: Dispatch<any>,
+  // start: boolean;
+  // setStart: (arg: boolean) => void;
+  // setCtaegoryPosition: (arg: string) => void
+  // nameCategory: string;
+  // position: number;
+  // setPosition: (arg: number) => void;
   redirectToAnswer: () => void,
-  categorySelected: GeneralCulture[];
-  sendButton: boolean;
+  // categorySelected: GeneralCulture[];
+  // sendButton: boolean;
   answerSelect: (id: string, response: boolean) => void;
   next: () => void;
   categorySelectedModal: (id: string) => void;
@@ -52,3 +56,21 @@ export type OneCategory = {
   name: string;
   clase?: string;
 };
+
+export type InitialState = {
+  general: number;
+  sport: number;
+  animals: number;
+  cities: number;
+  html: number;
+  js: number;
+  css: number;
+  nameCategory: string;
+  categorySelected: GeneralCulture[];
+  categoryPosition: string;
+  position: number;
+  score: boolean;
+  start: boolean;
+  sendButton: boolean;
+  response: boolean;
+}

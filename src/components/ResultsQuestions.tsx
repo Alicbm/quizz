@@ -7,18 +7,11 @@ import "../styles/ResultsQuestions.css";
 export const ResultsQuestions = () => {
   const navigate = useNavigate();
 
-  const { 
-    setStart,
-    general, 
-    sport, 
-    animals, 
-    cities, 
-    html, 
-    js, 
-    css } = React.useContext(AppContext);
+  const { dispatch, state } = React.useContext(AppContext);
 
     const returnQuizz = () => {
-      setStart(false)
+      dispatch({ type: 'start', payload: false })
+      // setStart(false)
       navigate('/quiz')
     }
 
@@ -32,31 +25,31 @@ export const ResultsQuestions = () => {
       </h1>
       <div className="ResultsQuestions-card">
         <h2>General Culture</h2>
-        <p>Result: {general} / 15</p>
+        <p>Result: {state.general} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Sport</h2>
-        <p>Result: {sport} / 15</p>
+        <p>Result: {state.sport} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Animals</h2>
-        <p>Result: {animals} / 15</p>
+        <p>Result: {state.animals} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Cities</h2>
-        <p>Result: {cities} / 15</p>
+        <p>Result: {state.cities} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>HTML</h2>
-        <p>Result: {html} / 15</p>
+        <p>Result: {state.html} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>Javascript</h2>
-        <p>Result: {js} / 15</p>
+        <p>Result: {state.js} / 15</p>
       </div>
       <div className="ResultsQuestions-card">
         <h2>CSS</h2>
-        <p>Result: {css} / 15</p>
+        <p>Result: {state.css} / 15</p>
       </div>
     </div>
   );

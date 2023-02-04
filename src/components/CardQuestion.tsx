@@ -6,15 +6,13 @@ import "../styles/CardQuestion.css";
 
 export function CardQuestion() {
   const {
-    position,
-    categorySelected,
+    state,
     answerSelect,
     next,
-    sendButton,
     redirectToAnswer,
   } = React.useContext(AppContext);
 
-  const eachQuestion: GeneralCulture = categorySelected[position];
+  const eachQuestion: GeneralCulture = state.categorySelected[state.position];
   
   const a = eachQuestion.optionA;
   const b = eachQuestion.optionB;
@@ -36,7 +34,7 @@ export function CardQuestion() {
       <p id="four" onClick={() => answerSelect("four", d.replay)}>
         {d.text}
       </p>
-      {!sendButton ? (
+      {!state.sendButton ? (
         <button className="CardQuestion-btn__next" onClick={next}>
           Next <MdDoubleArrow />
         </button>

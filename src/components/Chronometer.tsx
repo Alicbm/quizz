@@ -5,7 +5,7 @@ import { RxLapTimer } from "react-icons/rx";
 import "../styles/Chronometer.css";
 
 export const Chronometer = () => {
-  const { redirectToAnswer, nameCategory } = React.useContext(AppContext);
+  const { redirectToAnswer, state } = React.useContext(AppContext);
   const [min, setMine] = React.useState<number>(1);
   const [seg, setSeg] = React.useState<number>(60);
 
@@ -37,7 +37,7 @@ export const Chronometer = () => {
   return (
     <div className="Chronometer">
       <div className="Chronometer-category">
-        <p>{nameCategory}</p>
+        <p>{state.nameCategory}</p>
       </div>
       {seg <= 9 ? (
         <p className="Chronometer-time">

@@ -8,14 +8,14 @@ import { StartQuiz } from "./StartQuiz";
 import "../styles/Home.css";
 
 export const Home = () => {
-  const { start } = React.useContext(AppContext);
+  const { state } = React.useContext(AppContext);
 
   return (
     <div className="Home">
       <Header />
       <div className="Home-main">
         <CategoriesQuestions />
-        {!start ? (
+        {!state.start ? (
           <StartQuiz />
         ) : (
           <div className="Home-question">
